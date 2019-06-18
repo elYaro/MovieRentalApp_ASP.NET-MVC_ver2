@@ -15,8 +15,30 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             var movie = new Movie() { Id = 1, Name = "Shrek!" };
 
             return View(movie);
+
         }
 
+
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(string.Format("year : {0} month : {1}", year, month));
+        }
+
+
+        public ActionResult Index (int? id, string name)
+        {
+            if (!id.HasValue)
+            {
+                id = 11;
+            }
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = "Yaro";
+            }
+            return Content(string.Format("the id = {0} and name = {1}", id, name));
+
+            
+        }
 
     }
 }
