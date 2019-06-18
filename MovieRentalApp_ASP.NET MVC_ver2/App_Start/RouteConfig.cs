@@ -13,14 +13,9 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
 
-            routes.MapRoute(
-                "MoviesByReleaseDate",
-                "movies/releasedate/{year}/{month}",
-                new { controller = "Movies", action = "ByReleaseDate" },
-                new { year = @"2018|2019", month = @"\d{2}" });
-                
-                
+            
 
             routes.MapRoute(
                 name: "Default",
