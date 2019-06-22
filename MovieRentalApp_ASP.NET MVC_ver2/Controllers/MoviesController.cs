@@ -1,4 +1,5 @@
 ﻿using MovieRentalApp_ASP.NET_MVC_ver2.Models;
+using MovieRentalApp_ASP.NET_MVC_ver2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,20 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 1, Name = "Shrek!" };
+            var customers = new List<Customer>
+            {
+                new Customer { Id = 1, Name = "Bolek" },
+                new Customer { Id = 2, Name = "Lolek" },
+                new Customer { Id = 3, Name = "Tola"}
+            };
 
-            return View(movie);
+            var ViewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
 
+            return View(ViewModel);
         }
 
 
@@ -41,6 +53,5 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 
             
         }
-
     }
 }
