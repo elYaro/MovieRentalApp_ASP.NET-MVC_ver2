@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MovieRentalApp_ASP.NET_MVC_ver2.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index page for Customers</h2>
+ 
+@if (!Model.Any())
+{
+<p>We don't have any customers yet.</p>
+}
+else
+{
+    <table class="table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>All Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@customer.Id + " : " + @customer.Name, "Details", "Customers", new { Id = customer.Id }, null)
+                    </td>
+                
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+
