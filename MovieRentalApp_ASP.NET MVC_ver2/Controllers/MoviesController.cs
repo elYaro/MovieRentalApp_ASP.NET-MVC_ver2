@@ -10,6 +10,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 {
     public class MoviesController : Controller
     {
+        /*
         // GET: Movies/Random
         public ActionResult Random()
         {
@@ -29,7 +30,9 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 
             return View(ViewModel);
         }
+        */
 
+        /*
 
         // GET: Movies/Released/{year}/{month}
         [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
@@ -37,6 +40,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         {
             return Content(string.Format("year : {0} month : {1}", year, month));
         }
+        */
 
         // GET: Movies/
         public ActionResult Index(int? id)
@@ -53,6 +57,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
                     new Movie { Id = 2, Name = "Shrek2" },
                     new Movie { Id = 3, Name = "Wall-e" },
             };
-        }   
+        }
+        
     }
 }

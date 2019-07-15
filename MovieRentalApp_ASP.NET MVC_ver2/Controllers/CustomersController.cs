@@ -12,16 +12,9 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            /*var customers1 = new List<Customer>()
-            {
-               
-            };
-            */
             var customers = GetAllCustomers();
             return View(customers);
         }
-
-            // var customers = new 
 
 
         private IEnumerable<Customer> GetAllCustomers()
@@ -35,12 +28,28 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             };
         }
 
+        // GET: Cutomers/Details/{id}
+        public ActionResult Details(int id)
+        {
+            var customer = GetAllCustomers().SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(customer);
+            }
+
+
+        }
 
 
 
 
 
-            
+
+
 
     }
 }
