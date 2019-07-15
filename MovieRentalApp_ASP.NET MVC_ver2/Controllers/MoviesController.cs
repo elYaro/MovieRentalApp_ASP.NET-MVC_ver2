@@ -39,26 +39,20 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         }
 
         // GET: Movies/
-       
-        public ActionResult Index (int? id)
+        public ActionResult Index(int? id)
         {
-            var movies = new List<Movie>
-            {
-                        new Movie() {Id = 1, Name = "Shrek"},
-                        new Movie() { Id = 2, Name = "Shrek 2"},
-                        new Movie() { Id = 3, Name = "Wall-e"}
-
-            };
-
-            
-            if (id.HasValue)
-            {
-                return Content(string.Format("wybrałeś film z numerze ID równym {0}", id));
-            }
-
-            //return Content("nie bybałeś żadnego konkretnego filmu");
+            var movies = GetAllMovies();
             return View(movies);
-
         }
+
+        private IEnumerable<Movie> GetAllMovies()
+        {
+            return new List<Movie>
+                {
+                    new Movie { Id = 1, Name = "Shrek" },
+                    new Movie { Id = 2, Name = "Shrek2" },
+                    new Movie { Id = 3, Name = "Wall-e" },
+            };
+        }   
     }
 }
