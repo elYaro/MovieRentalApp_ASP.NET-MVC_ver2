@@ -63,7 +63,15 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         public ActionResult Details(int id)
         {
             var movie = GetAllMovies().SingleOrDefault(m => m.Id == id);
-            return View(movie);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(movie);
+            }
+            
         }
     }
 }
