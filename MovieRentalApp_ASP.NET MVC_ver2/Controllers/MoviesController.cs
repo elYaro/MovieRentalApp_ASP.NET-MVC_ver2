@@ -38,20 +38,27 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             return Content(string.Format("year : {0} month : {1}", year, month));
         }
 
-
-        public ActionResult Index (int? id, string name)
+        // GET: Movies/
+       
+        public ActionResult Index (int? id)
         {
-            if (!id.HasValue)
+            var movies = new List<Movie>
             {
-                id = 11;
-            }
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                name = "Yaro";
-            }
-            return Content(string.Format("the id = {0} and name = {1}", id, name));
+                        new Movie() {Id = 1, Name = "Shrek"},
+                        new Movie() { Id = 2, Name = "Shrek 2"},
+                        new Movie() { Id = 3, Name = "Wall-e"}
+
+            };
 
             
+            if (id.HasValue)
+            {
+                return Content(string.Format("wybrałeś film z numerze ID równym {0}", id));
+            }
+
+            //return Content("nie bybałeś żadnego konkretnego filmu");
+            return View(movies);
+
         }
     }
 }

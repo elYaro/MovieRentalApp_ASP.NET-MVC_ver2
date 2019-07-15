@@ -1,0 +1,35 @@
+﻿@model List<MovieRentalApp_ASP.NET_MVC_ver2.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index Page for Movies</h2>
+@if (Model.Count == 0)
+{
+    <p>We don't have any movies yet.</p>
+}
+else
+{
+    <table class="table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>All Movies</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Id : @movie.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+
+
+
