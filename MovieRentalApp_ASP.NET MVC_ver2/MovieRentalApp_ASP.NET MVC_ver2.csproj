@@ -158,6 +158,26 @@
     <Compile Include="Migrations\201907162140505_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201907162140505_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907171121580_AddNameColumnToMembershipType.cs" />
+    <Compile Include="Migrations\201907171121580_AddNameColumnToMembershipType.Designer.cs">
+      <DependentUpon>201907171121580_AddNameColumnToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907171123252_PopulatingMembershipTypeNamesInDataBase.cs" />
+    <Compile Include="Migrations\201907171123252_PopulatingMembershipTypeNamesInDataBase.Designer.cs">
+      <DependentUpon>201907171123252_PopulatingMembershipTypeNamesInDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907171131146_PopulatingMembershipTypeNamesInDataBase1.cs" />
+    <Compile Include="Migrations\201907171131146_PopulatingMembershipTypeNamesInDataBase1.Designer.cs">
+      <DependentUpon>201907171131146_PopulatingMembershipTypeNamesInDataBase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907171145174_PopulatingNamesisMembershipTypesVERSION2.cs" />
+    <Compile Include="Migrations\201907171145174_PopulatingNamesisMembershipTypesVERSION2.Designer.cs">
+      <DependentUpon>201907171145174_PopulatingNamesisMembershipTypesVERSION2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907171148331_PopulatingNamesisMembershipTypesVERSION3.cs" />
+    <Compile Include="Migrations\201907171148331_PopulatingNamesisMembershipTypesVERSION3.Designer.cs">
+      <DependentUpon>201907171148331_PopulatingNamesisMembershipTypesVERSION3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -241,6 +261,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907162140505_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201907162140505_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171121580_AddNameColumnToMembershipType.resx">
+      <DependentUpon>201907171121580_AddNameColumnToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171123252_PopulatingMembershipTypeNamesInDataBase.resx">
+      <DependentUpon>201907171123252_PopulatingMembershipTypeNamesInDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171131146_PopulatingMembershipTypeNamesInDataBase1.resx">
+      <DependentUpon>201907171131146_PopulatingMembershipTypeNamesInDataBase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171145174_PopulatingNamesisMembershipTypesVERSION2.resx">
+      <DependentUpon>201907171145174_PopulatingNamesisMembershipTypesVERSION2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171148331_PopulatingNamesisMembershipTypesVERSION3.resx">
+      <DependentUpon>201907171148331_PopulatingNamesisMembershipTypesVERSION3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
