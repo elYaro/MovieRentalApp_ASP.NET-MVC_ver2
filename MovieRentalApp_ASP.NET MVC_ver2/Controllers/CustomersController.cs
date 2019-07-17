@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 {
@@ -25,7 +26,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
             return View(customers);
         }
 
@@ -34,7 +35,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         // GET: Cutomers/Details/{id}
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c=>c.MembershipType).SingleOrDefault(c => c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();
