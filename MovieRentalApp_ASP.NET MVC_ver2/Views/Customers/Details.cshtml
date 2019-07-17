@@ -8,6 +8,13 @@
 
 <p>customer's id = @Model.Id</p>
 <p>customer's name = @Model.Name</p>
+@if (Model.BirthDate.HasValue)
+{
+    <p>customer's birthdate = @Model.BirthDate.Value.ToShortDateString()</p>
+}
+else { <p>"No date of birth available in data base"</p>}
+
+
 <p>membership's id = @Model.MembershipType.Name</p>
 <p>membership signUp fee = @Model.MembershipType.SignUpFee PLN</p>
 <p>membership duration in months = @Model.MembershipType.DurationInMonths months</p>
