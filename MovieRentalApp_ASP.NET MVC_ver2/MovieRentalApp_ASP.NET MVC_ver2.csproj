@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201907171940046_AddingAttributesToMovieProperties.Designer.cs">
       <DependentUpon>201907171940046_AddingAttributesToMovieProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907171949079_PopulateGenreTypes.cs" />
+    <Compile Include="Migrations\201907171949079_PopulateGenreTypes.Designer.cs">
+      <DependentUpon>201907171949079_PopulateGenreTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907171940046_AddingAttributesToMovieProperties.resx">
       <DependentUpon>201907171940046_AddingAttributesToMovieProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907171949079_PopulateGenreTypes.resx">
+      <DependentUpon>201907171949079_PopulateGenreTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
