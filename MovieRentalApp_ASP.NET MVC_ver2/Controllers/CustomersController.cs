@@ -9,29 +9,32 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 {
     public class CustomersController : Controller
     {
+        private MyDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new MyDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = GetAllCustomers();
+            var customers = _context.Customers.ToList();
             return View(customers);
         }
 
 
-        private IEnumerable<Customer> GetAllCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer {Id = 1, Name = "Bolek"},
-                new Customer {Id = 2, Name = "Lolek"},
-                new Customer {Id = 3, Name = "Tola"},
-                new Customer {Id = 4, Name = "Uszatek"}
-            };
-        }
 
         // GET: Cutomers/Details/{id}
         public ActionResult Details(int id)
         {
-            var customer = GetAllCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();
