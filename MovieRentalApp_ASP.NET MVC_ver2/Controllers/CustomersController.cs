@@ -50,12 +50,12 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new EditFormViewModel
             {
                 MembershipTypes = membershipTypes
             };
 
-            return View(viewModel);
+            return View("CustomerForm", viewModel);
         }
 
 
@@ -77,13 +77,13 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new EditFormViewModel
             {
                 Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
-            return View("New", viewModel);
+            return View("CustomerForm", viewModel);
         }
 
 
