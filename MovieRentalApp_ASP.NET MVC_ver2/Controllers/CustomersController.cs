@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using MovieRentalApp_ASP.NET_MVC_ver2.ViewModels;
 
 namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 {
@@ -44,12 +45,30 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             {
                 return View(customer);
             }
+        }
+        // GET: Customer/New
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
 
-
+            return View(viewModel);
         }
 
 
+        [HttpPost]
+        public ActionResult Create(NewCustomerViewModel viewModel)
+        {
+            return View(viewModel);
+        }
+        
 
+
+
+        
 
 
 

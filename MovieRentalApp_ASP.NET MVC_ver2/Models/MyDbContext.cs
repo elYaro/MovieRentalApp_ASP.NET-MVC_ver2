@@ -14,6 +14,8 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
+
 
     }
 }
