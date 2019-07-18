@@ -68,7 +68,23 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             return RedirectToAction("Index", "Customers");
         }
         
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("New", viewModel);
+        }
 
 
         
