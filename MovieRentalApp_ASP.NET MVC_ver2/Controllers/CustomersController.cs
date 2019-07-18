@@ -60,9 +60,12 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(NewCustomerViewModel viewModel)
+        public ActionResult Create(Customer customer)
         {
-            return View(viewModel);
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
         }
         
 
