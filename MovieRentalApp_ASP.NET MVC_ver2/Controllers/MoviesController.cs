@@ -58,5 +58,17 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
             }
             
         }
+
+
+        public ActionResult Create()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new EditFormMovieViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
     }
 }
