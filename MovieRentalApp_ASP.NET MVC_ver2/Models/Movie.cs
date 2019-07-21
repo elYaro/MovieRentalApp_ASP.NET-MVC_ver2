@@ -25,6 +25,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
         [Required]
         public Genre Genre { get; set; }
 
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
     }
