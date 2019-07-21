@@ -23,7 +23,7 @@ else
             @foreach (var movie in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(@movie.Id + " : " + movie.Name, "Details", "Movies", new { Id = movie.Id }, null);</td>
+                    <td>@Html.ActionLink(@movie.Id + " : " + movie.Name, "Create", "Movies", new { Id = movie.Id }, null);</td>
                     <td>@movie.Genre.Name</td>
                 </tr>
             }
@@ -32,7 +32,7 @@ else
 
     <p></p>
 
-    using (Html.BeginForm("Create", "Movies"))
+    using (Html.BeginForm("New", "Movies"))
     {
         <button class="btn btn-primary">Add new Movie</button>
     }
