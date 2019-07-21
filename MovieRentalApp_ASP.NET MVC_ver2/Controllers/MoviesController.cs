@@ -72,5 +72,18 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public ActionResult Create(Movie movie)
+        {
+            movie.DateAdded = DateTime.Now;
+
+            _context.Movies.Add(movie);
+
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index", "Movies");
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 <h2>New Movie Form - working in progress</h2>
 
-@using (Html.BeginForm("Create", "Movie"))
+@using (Html.BeginForm("Create", "Movies"))
 {
     <div class= "form-group">
         @Html.LabelFor(m=>m.Movie.Name)
@@ -17,6 +17,7 @@
     <div class="form-group">
         @Html.LabelFor(m=>m.Movie.ReleaseDate)
         @Html.TextBoxFor(m=>m.Movie.ReleaseDate, new { @class = "form-control"})
+        
     </div>
 
     <div class="form-group">

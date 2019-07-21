@@ -22,9 +22,10 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
         [Display(Name = "Number in Stock Left")]
         public short NumberInStock { get; set; }
 
-        [Required]
+        
         public Genre Genre { get; set; }
 
+        [Required]
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
