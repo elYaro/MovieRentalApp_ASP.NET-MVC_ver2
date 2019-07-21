@@ -14,7 +14,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Display(Name = "Birth date")]
+        [Display(Name = "Birth Date")]
         public DateTime? BirthDate { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
