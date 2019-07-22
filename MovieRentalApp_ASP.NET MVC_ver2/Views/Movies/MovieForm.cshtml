@@ -1,4 +1,4 @@
-﻿@model MovieRentalApp_ASP.NET_MVC_ver2.ViewModels.EditFormMovieViewModel
+﻿@model MovieRentalApp_ASP.NET_MVC_ver2.ViewModels.MovieFormViewModel
 
 @{
     ViewBag.Title = "New";
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m=>m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m=>m.Movie.ReleaseDate, new { @class = "form-control"})
+        @Html.TextBoxFor(m=>m.Movie.ReleaseDate, "{0:d MMM yyyy}",new { @class = "form-control"})
         
     </div>
 

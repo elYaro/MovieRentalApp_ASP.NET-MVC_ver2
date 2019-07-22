@@ -64,13 +64,13 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         {
             var genres = _context.Genres.ToList();
 
-            var viewModel = new EditFormMovieViewModel
+            var viewModel = new MovieFormViewModel
             {
                 Genres = genres
             };
            
 
-            return View(viewModel);
+            return View("MovieForm", viewModel);
         }
 
         [HttpPost]
@@ -95,14 +95,14 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new EditFormMovieViewModel
+            var viewModel = new MovieFormViewModel
             {
                 Movie = movie,
                 Genres = _context.Genres.ToList()
 
             };
                 
-            return View("New", viewModel);
+            return View("MovieForm", viewModel);
         }
     }
 }

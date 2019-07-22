@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MovieRentalApp_ASP.NET_MVC_ver2.ViewModels
 {
-    public class EditFormMovieViewModel
+    public class MovieFormViewModel
     {
         public IEnumerable<Genre> Genres { get; set; }
         public Movie Movie { get; set; }

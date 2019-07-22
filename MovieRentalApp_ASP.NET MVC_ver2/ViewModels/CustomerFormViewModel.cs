@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MovieRentalApp_ASP.NET_MVC_ver2.ViewModels
 {
-    public class EditFormViewModel
+    public class CustomerFormViewModel
     {
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
         public Customer Customer { get; set; }
