@@ -7,7 +7,7 @@
 
 <h2>New Movie Form - working in progress</h2>
 
-@using (Html.BeginForm("Create", "Movies"))
+@using (Html.BeginForm("Save", "Movies"))
 {
     <div class= "form-group">
         @Html.LabelFor(m=>m.Movie.Name)
@@ -29,7 +29,8 @@
         @Html.LabelFor(m=>m.Movie.GenreId)
         @Html.DropDownListFor(m=>m.Movie.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control"})
     </div>
-
+    //hidden fields below:
+    @Html.HiddenFor(m=>m.Movie.Id)
     <button type="submit" class="btn btn-primary">Save</button>
 
 }
