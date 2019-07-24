@@ -10,7 +10,8 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
     {
         public int Id{ get; set; }
 
-        [Required]
+        //[Required]
+        [Required(ErrorMessage ="Please enter customer's name")]  //OVERRIDING the default error message
         [StringLength(255)]
         public string Name { get; set; }
 
