@@ -24,7 +24,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }
