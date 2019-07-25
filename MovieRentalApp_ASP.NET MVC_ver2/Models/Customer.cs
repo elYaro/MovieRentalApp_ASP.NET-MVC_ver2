@@ -16,6 +16,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
         public string Name { get; set; }
 
         [Display(Name = "Birth Date")]
+        [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
