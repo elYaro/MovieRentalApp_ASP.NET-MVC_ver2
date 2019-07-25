@@ -31,4 +31,4 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
             
         }
     };
-}
+} 
