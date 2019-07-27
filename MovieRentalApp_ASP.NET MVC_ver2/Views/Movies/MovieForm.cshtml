@@ -46,7 +46,13 @@ else
     </div>
     //hidden fields below:
     @Html.HiddenFor(m => m.Movie.Id)
+    
     <button type="submit" class="btn btn-primary">Save</button>
 
 }
 
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")    
+}
