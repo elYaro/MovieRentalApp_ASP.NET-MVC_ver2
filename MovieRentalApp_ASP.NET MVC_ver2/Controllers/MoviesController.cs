@@ -75,6 +75,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
