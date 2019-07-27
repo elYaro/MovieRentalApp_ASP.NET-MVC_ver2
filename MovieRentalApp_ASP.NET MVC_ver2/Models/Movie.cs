@@ -10,7 +10,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please enter movie's name")]  //OVERRIDING the default error message
         [StringLength(255)]
         public string Name { get; set; }
 
@@ -20,6 +20,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Models
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number in Stock Left")]
+        [Range(1,20)]
         public short NumberInStock { get; set; }
 
         

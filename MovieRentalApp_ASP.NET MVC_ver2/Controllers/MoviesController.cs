@@ -66,7 +66,8 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
 
             var viewModel = new MovieFormViewModel
             {
-                Genres = genres
+                Genres = genres,
+                Movie = new Movie()
             };
            
 
@@ -76,6 +77,18 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+            
+
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
