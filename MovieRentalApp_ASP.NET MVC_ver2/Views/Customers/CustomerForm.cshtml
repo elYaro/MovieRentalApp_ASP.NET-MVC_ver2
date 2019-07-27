@@ -7,7 +7,7 @@
 }
 
 @{
-    var title = (Model.Customer == null) ? "New Customer" : "Edit Customer";
+    var title = (Model.Customer.Id == 0) ? "New Customer" : "Edit Customer";
 
 }
 
@@ -15,7 +15,7 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
-    @Html.ValidationSummary(true, "Please fix the following errors:");
+    @Html.ValidationSummary(true, "Please fix the following errors:")
 
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.Name)
