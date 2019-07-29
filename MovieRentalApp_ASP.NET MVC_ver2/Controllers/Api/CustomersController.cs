@@ -67,13 +67,13 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var customerIdDb = _context.Customers.Single(c => c.Id == id);
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
-            if (customerIdDb == null)
+            if (customerInDb == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            Mapper.Map<CustomerDto, Customer>(customerDto, customerIdDb);
+            Mapper.Map(customerDto, customerInDb);
 
             //customerIdDb.Name = customerDto.Name;
             //customerIdDb.BirthDate = customerDto.BirthDate;
@@ -89,7 +89,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
         [HttpDelete]
         public void DeleteCustomer (int id)
         {
-            var customerInDb = _context.Customers.Single(c => c.Id == id);
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
             {
