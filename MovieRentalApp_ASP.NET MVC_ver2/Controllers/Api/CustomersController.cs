@@ -1,4 +1,6 @@
-﻿using MovieRentalApp_ASP.NET_MVC_ver2.Models;
+﻿using AutoMapper;
+using MovieRentalApp_ASP.NET_MVC_ver2.Dtos;
+using MovieRentalApp_ASP.NET_MVC_ver2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +20,14 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
         }
 
         // GET/api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
         }
             
 
         // GET/api/customers/1
-        public Customer GetCustomer (int id)
+        public CustomerDto GetCustomer (int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
@@ -34,26 +36,31 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            return customer;
+            return Mapper.Map<Customer, CustomerDto>(customer);
         }
 
         // POST/api/customers
         [HttpPost]
-        public Customer CreateCustomer (Customer customer)
+        public CustomerDto CreateCustomer (CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
+
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
-            return customer;
+
+            customerDto.Id = customer.Id;
+
+            return customerDto;
         }
 
         // PUT/api/customers/1
         [HttpPut]
-        public void UpdateCustomer (int id, Customer customer)
+        public void UpdateCustomer (int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -66,11 +73,12 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
+            Mapper.Map<CustomerDto, Customer>(customerDto, customerIdDb);
 
-            customerIdDb.Name = customer.Name;
-            customerIdDb.BirthDate = customer.BirthDate;
-            customerIdDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-            customerIdDb.MembershipTypeId = customer.MembershipTypeId;
+            //customerIdDb.Name = customerDto.Name;
+            //customerIdDb.BirthDate = customerDto.BirthDate;
+            //customerIdDb.IsSubscribedToNewsletter = customerDto.IsSubscribedToNewsletter;
+            //customerIdDb.MembershipTypeId = customerDto.MembershipTypeId;
 
             _context.SaveChanges();
 
