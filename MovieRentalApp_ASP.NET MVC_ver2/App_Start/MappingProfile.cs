@@ -12,8 +12,14 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.App_Start
     {
         public MappingProfile()
         {
+            //mapping from domain model to Dto Model
             Mapper.CreateMap<Customer, CustomerDto>();
+            Mapper.CreateMap<Movie, MovieDto>();
+
+
+            // mapping from Dto Model to domain model
             Mapper.CreateMap<CustomerDto, Customer>();
+            Mapper.CreateMap<MovieDto, Movie>();
         }
     }
 }
