@@ -12,11 +12,12 @@
 }
 else
 {
-    <table class="table-bordered table-hover">
+    <table id ="movies" class="table-bordered table-hover">
         <thead>
             <tr>
                 <th>All Movies</th>
                 <th>Genre</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,9 @@ else
                 <tr>
                     <td>@Html.ActionLink(@movie.Id + " : " + movie.Name, "Edit", "Movies", new { Id = movie.Id }, null)</td>
                     <td>@movie.Genre.Name</td>
+                    <td>
+                        <button class="btn-link js-delete">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -39,6 +43,16 @@ else
 
 }
 
-
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $("#movies .js-delete").on("click", function () {
+                confirm("Are you sure you want delete this movie")
+            });
+        });
+    </script>
+  
+    }
 
 
