@@ -2,6 +2,7 @@
 using MovieRentalApp_ASP.NET_MVC_ver2.Dtos;
 using MovieRentalApp_ASP.NET_MVC_ver2.Models;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,9 +21,14 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers.Api
         }
         
         //GET/api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDtos = _context
+                .Movies.Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movieDtos);
         }
 
 

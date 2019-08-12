@@ -23,5 +23,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Dtos
 
         [Required]
         public byte GenreId { get; set; }
+
+        public GenreDto Genre { get; set; }
     }
 }
