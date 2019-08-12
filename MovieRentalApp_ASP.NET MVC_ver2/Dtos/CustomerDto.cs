@@ -24,5 +24,7 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Dtos
 
         public byte MembershipTypeId { get; set; }
 
+        public MembershipTypeDto MembershipType { get; set; }
+
     }
 }
