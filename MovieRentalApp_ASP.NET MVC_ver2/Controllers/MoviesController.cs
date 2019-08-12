@@ -39,8 +39,9 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2.Controllers
         // GET: Movies/
         public ActionResult Index(int? id)
         {
-            var movies = _context.Movies.Include(c => c.Genre).ToList();
-            return View(movies);
+            // var movies = _context.Movies.Include(c => c.Genre).ToList();
+            //return View(movies);
+            return View();
         }
 
         

@@ -6,21 +6,25 @@
 }
 
 <h2>Index Page for Movies</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any movies yet.</p>
-}
-else
-{
-    <table id ="movies" class="table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>All Movies</th>
-                <th>Genre</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
+@*
+    @if (!Model.Any())
+    {
+        <p>We don't have any movies yet.</p>
+    }
+    else
+    {
+    }
+*@
+<table id="movies" class="table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>All Movies</th>
+            <th>Genre</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*
             @foreach (var movie in Model)
             {
                 <tr>
@@ -31,25 +35,47 @@ else
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
+        *@
+    </tbody>
+</table>
 
-    <p></p>
+<p></p>
 
-    using (Html.BeginForm("New", "Movies"))
-    {
-        <button class="btn btn-primary">Add new Movie</button>
-    }
+@using (Html.BeginForm("New", "Movies"))
+ {
+    <button class="btn btn-primary">Add new Movie</button>
+ }
 
-}
 
 @section scripts
     {
     <script>
         $(document).ready(function () {
-            $("#movies").DataTable();
+            $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, movie) {
+                            return "<a href='movies/edit/" + movie.id + "'>" + movie.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-movie-id =" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
 
-            $("#movies").on("click", ".js-delete",  function () {
+            $("#movies").on("click", ".js-delete", function () {
                 var button = $(this);
 
                 bootbox.confirm("Are you sure you want to delete this movie?", function (result) {
@@ -66,7 +92,7 @@ else
             });
         });
     </script>
-  
-    }
+
+}
 
 
