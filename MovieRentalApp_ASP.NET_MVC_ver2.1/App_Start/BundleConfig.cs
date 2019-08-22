@@ -23,7 +23,8 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2._1
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-lumen.css",
+                      //"~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
