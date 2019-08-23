@@ -1,4 +1,4 @@
-﻿@model MovieRentalApp_ASP.NET_MVC_ver2._1.Models.Movie
+﻿@model MovieRentalApp_ASP.NET_MVC_ver2._1.ViewModels.RandomMovieViewModel
 
 @{
     ViewBag.Title = "Random";
@@ -7,5 +7,27 @@
 
 <h2>Random View</h2>
 
-<h6>@Model.Name</h6>
+<h4>@Model.Movie.Name</h4>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>no customers yeat</p>
+}
+
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>
+                @customer.Name
+            </li>
+        }
+    </ul>
+
+}
+
+
+
+
 
