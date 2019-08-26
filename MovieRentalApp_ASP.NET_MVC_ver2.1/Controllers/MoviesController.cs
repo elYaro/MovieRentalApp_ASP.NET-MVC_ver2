@@ -10,61 +10,6 @@ namespace MovieRentalApp_ASP.NET_MVC_ver2._1.Controllers
 {
     public class MoviesController : Controller
     {
-        
-        //GET : movies
-        public ActionResult Index()
-        {
-            var movies = GetAllMovies();
-
-            return View(movies);
-        }
-
-
-        //GET : movies/details/1
-        public ActionResult Details(int id)
-        {
-            var movie = GetAllMovies().SingleOrDefault(m => m.Id == id);
-
-            if (movie == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(movie);
-
-        }
-
-
-
-
-
-        
-        //helper method
-        public List<Movie> GetAllMovies()
-        {
-            var movies = new List<Movie>
-            {
-                
-                new Movie(){
-                    Name = "Shrek",
-                    Id = 1
-                },
-                new Movie (){
-                    Name = "Wall-e",
-                    Id = 2
-                 
-                }
-                
-            };
-
-            return movies;
-        }
-        
-        
-        
-        
-        
-        
         // GET: Movies/Random
         public ActionResult Random()
         {
